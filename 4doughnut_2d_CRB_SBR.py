@@ -183,4 +183,7 @@ ax2.yaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
 ax2.yaxis.set_minor_formatter(matplotlib.ticker.ScalarFormatter())
 plt.tight_layout()
 
+import os; os.makedirs('figs', exist_ok=True)
+fig.savefig('figs/4doughnut_2d_CRB_SBR_map.png', dpi=150, bbox_inches='tight')
+fig2.savefig('figs/4doughnut_2d_CRB_SBR_slice.png', dpi=150, bbox_inches='tight')
 plt.show()

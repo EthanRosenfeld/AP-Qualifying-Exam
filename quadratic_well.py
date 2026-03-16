@@ -40,4 +40,7 @@ ax2.set_title(r"$\sigma_{\mathrm{CRB}} = \frac{1}{\sqrt{A}}$")
 
 plt.tight_layout()
 
+import os; os.makedirs('figs', exist_ok=True)
+fig.savefig('figs/quadratic_well_crb.png', dpi=150, bbox_inches='tight')
+fig2.savefig('figs/quadratic_well_crb2.png', dpi=150, bbox_inches='tight')
 plt.show()
