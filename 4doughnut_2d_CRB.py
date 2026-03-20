@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
+from scipy.special import erf
 
 # Parameters
 L = 100       # nm, radius of outer beam circle
@@ -113,7 +114,7 @@ im = ax.imshow(
 fig.colorbar(im, ax=ax, label=r'$\sigma_{\mathrm{CRB}}$ (nm)')
 ax.set_xlabel('x (nm)')
 ax.set_ylabel('y (nm)')
-ax.set_title(r'CRB 2D map ($N=%d$, $L=%d$ nm)' % (N, L))
+ax.set_title(r'CRB 2D map')
 for (bx, by) in centers:
     ax.plot(bx, by, 'w+', markersize=12, markeredgewidth=2)
 
@@ -132,10 +133,35 @@ ax2.set_ylim(1, 15)
 ax2.yaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
 ax2.yaxis.set_minor_formatter(matplotlib.ticker.ScalarFormatter())
 
+# Camera CRB (infinite SBR) at origin, scales as 1/sqrt(N)
+sigma_psf_cam = 120.0   # nm
+a_cam         = 100.0   # nm pixel size
+K_side_cam    = 9
+idx_cam = np.arange(K_side_cam) - K_side_cam//2
+xc, yc = idx_cam*a_cam, idx_cam*a_cam
+XXc, YYc = np.meshgrid(xc, yc)
+pix_cam = np.column_stack((XXc.ravel(), YYc.ravel()))
+
+def psf_pix(xm, ym):
+    xi, yi = pix_cam[:,0], pix_cam[:,1]
+    ex = erf((xi+a_cam/2-xm)/(np.sqrt(2)*sigma_psf_cam)) - erf((xi-a_cam/2-xm)/(np.sqrt(2)*sigma_psf_cam))
+    ey = erf((yi+a_cam/2-ym)/(np.sqrt(2)*sigma_psf_cam)) - erf((yi-a_cam/2-ym)/(np.sqrt(2)*sigma_psf_cam))
+    return 0.25*ex*ey
+
+eps = 1e-6
+p0  = psf_pix(0.0, 0.0); p0 /= p0.sum()
+px  = (psf_pix(eps, 0.0) - psf_pix(-eps, 0.0))/(2*eps)
+py  = (psf_pix(0.0, eps) - psf_pix(0.0, -eps))/(2*eps)
+Fxx_cam = np.sum(px*px/p0); Fyy_cam = np.sum(py*py/p0); Fxy_cam = np.sum(px*py/p0)
+F_cam = np.array([[Fxx_cam, Fxy_cam],[Fxy_cam, Fyy_cam]])
+sigma_cam_N1 = np.sqrt(np.trace(np.linalg.inv(F_cam))/2)  # nm, at N=1
+cam_crb = sigma_cam_N1 / np.sqrt(N_vals)
+
 # Subplot 3: CRB at origin vs N for each L
 ax3 = axes[2]
 for L_val in L_vals_slice:
     ax3.plot(N_vals, crb_origin[L_val], label=f'L = {L_val} nm')
+ax3.plot(N_vals, cam_crb, 'k-', lw=1.5, label='perfect camera')
 ax3.set_xscale('log')
 ax3.set_yscale('log')
 ax3.set_xlabel('N (photons)')
@@ -143,7 +169,7 @@ ax3.set_ylabel(r'$\sigma_{\mathrm{CRB}}$ at origin (nm)')
 ax3.set_title(r'CRB at origin vs $N$')
 ax3.set_ylim(1, 100)
 ax3.set_xlim(1, 1000)
-ax3.legend(fontsize=8)
+ax3.legend(fontsize=7)
 ax3.xaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
 ax3.yaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
 
