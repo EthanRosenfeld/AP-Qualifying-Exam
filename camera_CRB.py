@@ -53,75 +53,68 @@ def sigma_crb(N,SBR):
 
 N = np.logspace(1,4,200)
 
-SBR_list = [np.inf,500,50,5]
-
-for SBR in SBR_list:
-    sig = np.array([sigma_crb(n,SBR) for n in N])
-    plt.loglog(N, sig*1e9, label=f"SBR={SBR}")
-
-plt.xlabel("photons")
-plt.ylabel("CRB uncertainty (nm)")
-plt.legend()
 import os; os.makedirs('figs', exist_ok=True)
-plt.savefig('figs/camera_CRB.png', dpi=150, bbox_inches='tight')
+
+fig0, ax0 = plt.subplots()
+ax0.loglog(N, sigma_psf/np.sqrt(N)*1e9, 'r--', label=r'$\sigma/\sqrt{N}$')
+ax0.set_xlabel("photons")
+ax0.set_ylabel("CRB uncertainty (nm)")
+ax0.legend()
+fig0.savefig('figs/camera_CRB.png', dpi=150, bbox_inches='tight')
 
 fig2, ax2 = plt.subplots()
 sig_inf = np.array([sigma_crb(n, np.inf) for n in N])
-ax2.loglog(N, sig_inf*1e9)
+ax2.loglog(N, sig_inf*1e9, label=r'CRB perfect pixelated camera')
+ax2.loglog(N, sigma_psf/np.sqrt(N)*1e9, 'r--', label=r'$\sigma/\sqrt{N}$')
 ax2.set_xlabel("photons")
 ax2.set_ylabel("CRB uncertainty (nm)")
+ax2.legend()
 fig2.savefig('figs/camera_CRB_inf.png', dpi=150, bbox_inches='tight')
 
-# --- 2D CRB map over emitter positions (SBR=inf, N=100) ---
-N_map = 100
-eps_map = 1e-12
-lim_map = 150e-9   # show ±1.5 pixels
-n_map = 200
-xm_arr = np.linspace(-lim_map, lim_map, n_map)
-ym_arr = np.linspace(-lim_map, lim_map, n_map)
-XM, YM = np.meshgrid(xm_arr, ym_arr)   # (n_map, n_map)
+# --- new plot: approach theory limit with smaller pixels ---
+def sigma_crb_pixsize(N_phot, a_px):
+    """CRB (SBR=inf) for a given pixel size a_px, centred emitter."""
+    # Keep physical coverage fixed at ±5*sigma_psf regardless of pixel size
+    K_side_px = max(int(np.ceil(10 * sigma_psf / a_px)), 9)
+    if K_side_px % 2 == 0:
+        K_side_px += 1
+    idx_px = np.arange(K_side_px) - K_side_px // 2
+    xp = idx_px * a_px
+    xx_px, yy_px = np.meshgrid(xp, xp)
+    pix = np.column_stack((xx_px.ravel(), yy_px.ravel()))
+    xi, yi = pix[:, 0], pix[:, 1]
 
-# Vectorised psf: shape (n_map, n_map, K)
-xi = pixels[:,0]; yi = pixels[:,1]
+    def psf_p(xm, ym):
+        ex = erf((xi + a_px/2 - xm)/(np.sqrt(2)*sigma_psf)) - erf((xi - a_px/2 - xm)/(np.sqrt(2)*sigma_psf))
+        ey = erf((yi + a_px/2 - ym)/(np.sqrt(2)*sigma_psf)) - erf((yi - a_px/2 - ym)/(np.sqrt(2)*sigma_psf))
+        return 0.25 * ex * ey
 
-def psf_grid(XM, YM):
-    XM_ = XM[..., np.newaxis]; YM_ = YM[..., np.newaxis]
-    ex = erf((xi - XM_ + a/2)/(np.sqrt(2)*sigma_psf)) - erf((xi - XM_ - a/2)/(np.sqrt(2)*sigma_psf))
-    ey = erf((yi - YM_ + a/2)/(np.sqrt(2)*sigma_psf)) - erf((yi - YM_ - a/2)/(np.sqrt(2)*sigma_psf))
-    return 0.25*ex*ey   # (n_map, n_map, K)
+    def p_norm(xm, ym):
+        q = psf_p(xm, ym)
+        return q / q.sum()
 
-psf0  = psf_grid(XM, YM)
-S0    = psf0.sum(axis=-1, keepdims=True)
-p0    = psf0 / S0
+    eps = 1e-12
+    p  = p_norm(0, 0)
+    px = (p_norm(eps, 0) - p_norm(-eps, 0)) / (2*eps)
+    py = (p_norm(0, eps) - p_norm(0, -eps)) / (2*eps)
 
-psf_px = psf_grid(XM + eps_map, YM); psf_mx = psf_grid(XM - eps_map, YM)
-psf_py = psf_grid(XM, YM + eps_map); psf_my = psf_grid(XM, YM - eps_map)
+    Fxx = N_phot * np.sum(px**2 / p)
+    Fyy = N_phot * np.sum(py**2 / p)
+    Fxy = N_phot * np.sum(px * py / p)
+    det = Fxx*Fyy - Fxy**2
+    return np.sqrt((Fxx + Fyy) / (2 * det))
 
-dpx = (psf_px/psf_px.sum(axis=-1,keepdims=True) - psf_mx/psf_mx.sum(axis=-1,keepdims=True)) / (2*eps_map)
-dpy = (psf_py/psf_py.sum(axis=-1,keepdims=True) - psf_my/psf_my.sum(axis=-1,keepdims=True)) / (2*eps_map)
+pixel_sizes = [100e-9, 30e-9, 10e-9, 3e-9]  # metres
 
-Fxx_map = N_map * np.sum(dpx**2 / p0, axis=-1)
-Fyy_map = N_map * np.sum(dpy**2 / p0, axis=-1)
-Fxy_map = N_map * np.sum(dpx*dpy / p0, axis=-1)
-
-det_map = Fxx_map*Fyy_map - Fxy_map**2
-sigma_map = np.sqrt((Fxx_map + Fyy_map) / (2*det_map))
-sigma_map[det_map <= 0] = np.nan
-
-fig3, ax3 = plt.subplots(figsize=(7, 6))
-im3 = ax3.imshow(sigma_map*1e9,
-                 origin='lower',
-                 extent=[-lim_map*1e9, lim_map*1e9, -lim_map*1e9, lim_map*1e9],
-                 cmap='viridis', vmin=0, vmax=30)
-fig3.colorbar(im3, ax=ax3, label=r'$\sigma_{\mathrm{CRB}}$ (nm)')
-# Mark pixel centers within the shown FOV
-for (px_c, py_c) in pixels:
-    if abs(px_c) <= lim_map*1e9 and abs(py_c) <= lim_map*1e9:
-        ax3.plot(px_c*1e9, py_c*1e9, 'w+', markersize=10, markeredgewidth=1.5)
-ax3.set_xlabel('x (nm)')
-ax3.set_ylabel('y (nm)')
-ax3.set_title(r'Camera CRB 2D map ($N=%d$, SBR=$\infty$)' % N_map)
-plt.tight_layout()
-fig3.savefig('figs/camera_CRB_2D_map.png', dpi=150, bbox_inches='tight')
+fig3, ax3 = plt.subplots()
+for a_px in pixel_sizes:
+    sig_px = np.array([sigma_crb_pixsize(n, a_px) for n in N])
+    ax3.loglog(N, sig_px*1e9, label=f'a = {int(a_px*1e9)} nm')
+ax3.loglog(N, sigma_psf/np.sqrt(N)*1e9, 'r--', label=r'$\sigma/\sqrt{2N}$')
+ax3.set_xlabel("photons")
+ax3.set_ylabel("CRB uncertainty (nm)")
+ax3.set_title("Camera CRB vs pixel size (SBR=∞)")
+ax3.legend()
+fig3.savefig('figs/camera_CRB_pixsize.png', dpi=150, bbox_inches='tight')
 
 plt.show()

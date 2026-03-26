@@ -2,109 +2,108 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
-# Grid
-n = 400
-lim = 2.0
-x = np.linspace(-lim, lim, n)
+# ── Grid ──────────────────────────────────────────────────────────────────────
+n    = 500
+lim  = 3.0
+x    = np.linspace(-lim, lim, n)
 X, Y = np.meshgrid(x, x)
+
+# ── Gaussian beam helper ───────────────────────────────────────────────────────
+w0  = 0.18   # beam waist at focus (grid units)
+z_R = 1.8    # Rayleigh range
+
+def gaussian_beam(prop_deg):
+    """2-D Gaussian beam propagating at prop_deg degrees (CCW from +x)."""
+    theta = np.radians(prop_deg)
+    dx, dy = np.cos(theta), np.sin(theta)
+    t =  X*dx + Y*dy   # longitudinal coordinate
+    s = -X*dy + Y*dx   # transverse coordinate
+    w = w0 * np.sqrt(1 + (t / z_R)**2)
+    return np.exp(-s**2 / (2 * w**2))
+
+# Red excitation beam: propagates lower-right (enters from upper-left, 315°)
+red_beam  = gaussian_beam(315.0)
+
+# Blue reactivation beam: propagates lower-left (enters from upper-right, 225°)
+# Symmetric with red about the vertical axis
+blue_beam = gaussian_beam(225.0)
+
+# ── Precompute radial distance ─────────────────────────────────────────────────
 R2 = X**2 + Y**2
 
-def gauss(sigma):
-    return np.exp(-R2 / (2*sigma**2))
+def make_frame(alpha):
+    """alpha=1 → fully ON (green), alpha=0 → fully OFF (transparent).
+    White background with subtractive beams; fluorescence via alpha-blend."""
+    img = np.ones((n, n, 3))
+    # Green excitation beam: absorb R and B to leave a green tint
+    img[:,:,0] -= 0.35 * red_beam
+    img[:,:,2] -= 0.40 * red_beam
+    # Blue reactivation beam: absorb R and G to leave a blue tint
+    img[:,:,0] -= 0.20 * blue_beam
+    img[:,:,1] -= 0.28 * blue_beam
+    img = np.clip(img, 0, 1)
+    # Fluorophore ON: alpha-blend toward bright red
+    core = np.exp(-R2 / (2 * 0.09**2))
+    glow = np.exp(-R2 / (2 * 0.30**2))
+    fluo_mask = alpha * np.tanh(core + 0.30 * glow)
+    red = np.array([0.95, 0.05, 0.05])
+    img = img * (1 - fluo_mask[:,:,None]) + red * fluo_mask[:,:,None]
+    return img
 
-# Beam/emission profiles
-beam_647 = gauss(0.38)
-beam_405 = gauss(0.32)
-emission = gauss(0.60)
-fluo_dot = gauss(0.06)
+# ── Stochastic blinking sequence ──────────────────────────────────────────────
+rng      = np.random.default_rng(42)
+n_frames = 300
+p_off    = 0.04   # OFF per frame when ON  → mean ON  ~25 frames @ 25 fps ≈ 1 s
+p_on     = 0.08   # ON  per frame when OFF → mean OFF ~12 frames @ 25 fps ≈ 0.5 s
 
-# RGB colors
-c_647  = np.array([0.0, 0.85, 0.0])   # green false color  647 nm
-c_700  = np.array([1.0, 0.05, 0.0])   # bright red  671 nm emission
-c_405  = np.array([0.55, 0.0, 1.0])   # violet      405 nm
-c_dot  = np.array([0.75, 0.0, 0.0])   # dark red dot (ON)
-c_off  = np.array([0.65, 0.65, 0.65]) # gray dot (OFF state)
+state = True
+raw   = []
+for _ in range(n_frames):
+    if state:
+        if rng.random() < p_off:
+            state = False
+    else:
+        if rng.random() < p_on:
+            state = True
+    raw.append(float(state))
 
-def make_frame(exc647, emis, exc405, fluo_on):
-    img = np.ones((n, n, 3))  # white background
-    # Absorptive blending: tints white toward beam color
-    img -= exc647 * beam_647[:,:,None] * (1 - c_647)
-    img -= emis   * emission[:,:,None] * (1 - c_700)
-    img -= exc405 * beam_405[:,:,None] * (1 - c_405)
-    img -= 0.9    * fluo_dot[:,:,None] * (1 - (c_dot if fluo_on else c_off))
-    return np.clip(img, 0, 1)
+# Smooth transitions with an exponential filter (τ = 3 frames)
+tau     = 3.0
+alpha_f = 1 - np.exp(-1 / tau)
+smooth  = np.zeros(n_frames)
+smooth[0] = raw[0]
+for i in range(1, n_frames):
+    smooth[i] = alpha_f * raw[i] + (1 - alpha_f) * smooth[i-1]
 
-def smoothstep(t):
-    t = np.clip(t, 0, 1)
-    return t*t*(3 - 2*t)
+frames_data = [make_frame(a) for a in smooth]
 
-# Build frames
-frames_data = []   # (img, title, title_color)
-
-n_on      = 60
-n_fadeout = 25
-n_off     = 40
-n_react   = 45
-n_fadein  = 25
-n_on2     = 50
-
-# Phase 1: 647nm excitation + fluorescence ON (pulse emission gently)
-for i in range(n_on):
-    pulse = 1.0 + 0.12*np.sin(2*np.pi*i/15)
-    frames_data.append((make_frame(0.7, 0.9*pulse, 0, True),
-                        '647 nm excitation  →  671 nm fluorescence', '#CC2200'))
-
-# Phase 2: fade out → OFF
-for i in range(n_fadeout):
-    t = smoothstep(i / n_fadeout)
-    frames_data.append((make_frame(0.7*(1-t), 0.9*(1-t), 0, True),
-                        'chemical change → fluorescence OFF', 'black'))
-
-# Phase 3: dark / OFF state
-for i in range(n_off):
-    frames_data.append((make_frame(0, 0, 0, False),
-                        'fluorescence OFF', 'black'))
-
-# Phase 4: 405nm reactivation beam appears
-for i in range(n_react):
-    t = smoothstep(i / n_react)
-    frames_data.append((make_frame(0, 0, 0.85*t, False),
-                        '405 nm reactivation', '#6600CC'))
-
-# Phase 5: fade emission back in, turn fluorophore ON
-for i in range(n_fadein):
-    t = smoothstep(i / n_fadein)
-    fluo_on = t > 0.4
-    frames_data.append((make_frame(0.7*t, 0.9*t, 0.85*(1-t), fluo_on),
-                        '405 nm → fluorescence ON again', '#6600CC'))
-
-# Phase 6: back to ON with 647nm + emission
-for i in range(n_on2):
-    pulse = 1.0 + 0.12*np.sin(2*np.pi*i/15)
-    frames_data.append((make_frame(0.7, 0.9*pulse, 0, True),
-                        '647 nm excitation  →  671 nm fluorescence', '#CC2200'))
-
-# --- Figure ---
-fig, ax = plt.subplots(figsize=(5, 5), facecolor='white')
+# ── Figure ────────────────────────────────────────────────────────────────────
+fig, ax = plt.subplots(figsize=(6, 5), facecolor='white')
 ax.set_facecolor('white')
 ax.axis('off')
 
-im = ax.imshow(frames_data[0][0], origin='lower',
+im = ax.imshow(frames_data[0], origin='lower',
                extent=[-lim, lim, -lim, lim], interpolation='bilinear')
 
-title = ax.set_title(frames_data[0][1], color=frames_data[0][2],
-                     fontsize=11, pad=8)
-fig.patch.set_facecolor('white')
+# Static labels pointing to each beam
+ax.annotate(
+    'Excitation', xy=(-1.4, 1.4), xytext=(-2.4, 2.3),
+    color='#CC1100', fontsize=11, fontweight='bold', ha='center', va='bottom',
+    arrowprops=dict(arrowstyle='->', color='#CC1100', lw=1.5),
+)
+
+ax.annotate(
+    'Reactivation', xy=(1.4, 1.4), xytext=(2.4, 2.3),
+    color='#3355CC', fontsize=11, fontweight='bold', ha='center', va='bottom',
+    arrowprops=dict(arrowstyle='->', color='#3355CC', lw=1.5),
+)
 
 def update(i):
-    img, txt, col = frames_data[i]
-    im.set_data(img)
-    title.set_text(txt)
-    title.set_color(col)
-    return im, title
+    im.set_data(frames_data[i])
+    return (im,)
 
-ani = animation.FuncAnimation(fig, update, frames=len(frames_data),
-                               interval=40, blit=False)
+ani = animation.FuncAnimation(fig, update, frames=n_frames,
+                               interval=40, blit=True)
 
 plt.tight_layout()
 import os; os.makedirs('figs', exist_ok=True)
