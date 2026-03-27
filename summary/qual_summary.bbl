@@ -1,0 +1,628 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{hellBreakingDiffractionResolution1994}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=817091458281fdd1953a31dd45bc5980}{%
+           family={Hell},
+           familyi={H\bibinitperiod},
+           given={Stefan\bibnamedelima W.},
+           giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=04efd77f047cfc27504a1c1c37978dd2}{%
+           family={Wichmann},
+           familyi={W\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{49272382f3af8429baca52e8180ce40c}
+      \strng{fullhash}{49272382f3af8429baca52e8180ce40c}
+      \strng{fullhashraw}{49272382f3af8429baca52e8180ce40c}
+      \strng{bibnamehash}{49272382f3af8429baca52e8180ce40c}
+      \strng{authorbibnamehash}{49272382f3af8429baca52e8180ce40c}
+      \strng{authornamehash}{49272382f3af8429baca52e8180ce40c}
+      \strng{authorfullhash}{49272382f3af8429baca52e8180ce40c}
+      \strng{authorfullhashraw}{49272382f3af8429baca52e8180ce40c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{issn}{0146-9592, 1539-4794}
+      \field{journaltitle}{Optics Letters}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{number}{11}
+      \field{shortjournal}{Opt. Lett.}
+      \field{title}{Breaking the Diffraction Resolution Limit by Stimulated Emission: Stimulated-Emission-Depletion Fluorescence Microscopy}
+      \field{urlday}{27}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{volume}{19}
+      \field{year}{1994}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{780}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1364/OL.19.000780
+      \endverb
+      \verb{urlraw}
+      \verb https://opg.optica.org/abstract.cfm?URI=ol-19-11-780
+      \endverb
+      \verb{url}
+      \verb https://opg.optica.org/abstract.cfm?URI=ol-19-11-780
+      \endverb
+    \endentry
+    \entry{rustSubdiffractionlimitImagingStochastic2006}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=1b8813fa0d1a6794342e8a0491e63304}{%
+           family={Rust},
+           familyi={R\bibinitperiod},
+           given={Michael\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=92600c561c0ae6408f6fc8beeaa9c5a7}{%
+           family={Bates},
+           familyi={B\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=4d1481c8d2356ff0ae710224a68a23df}{%
+           family={Zhuang},
+           familyi={Z\bibinitperiod},
+           given={Xiaowei},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b3938b8d1b5441a63f7388bdb620345}
+      \strng{fullhash}{8b3938b8d1b5441a63f7388bdb620345}
+      \strng{fullhashraw}{8b3938b8d1b5441a63f7388bdb620345}
+      \strng{bibnamehash}{8b3938b8d1b5441a63f7388bdb620345}
+      \strng{authorbibnamehash}{8b3938b8d1b5441a63f7388bdb620345}
+      \strng{authornamehash}{8b3938b8d1b5441a63f7388bdb620345}
+      \strng{authorfullhash}{8b3938b8d1b5441a63f7388bdb620345}
+      \strng{authorfullhashraw}{8b3938b8d1b5441a63f7388bdb620345}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1548-7091, 1548-7105}
+      \field{journaltitle}{Nature Methods}
+      \field{langid}{english}
+      \field{month}{10}
+      \field{number}{10}
+      \field{shortjournal}{Nat Methods}
+      \field{title}{Sub-Diffraction-Limit Imaging by Stochastic Optical Reconstruction Microscopy ({{STORM}})}
+      \field{urlday}{19}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{volume}{3}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{793\bibrangedash 796}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1038/nmeth929
+      \endverb
+      \verb{urlraw}
+      \verb https://www.nature.com/articles/nmeth929
+      \endverb
+      \verb{url}
+      \verb https://www.nature.com/articles/nmeth929
+      \endverb
+    \endentry
+    \entry{betzigImagingIntracellularFluorescent2006}{article}{}{}
+      \name{author}{9}{}{%
+        {{hash=b25fd03e7cbcc48fed70f50f7fbffe4e}{%
+           family={Betzig},
+           familyi={B\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+        {{hash=b04940490cb3912a94952934f424e083}{%
+           family={Patterson},
+           familyi={P\bibinitperiod},
+           given={George\bibnamedelima H.},
+           giveni={G\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=cb73708d6bc42afaee8ccc07a8502d16}{%
+           family={Sougrat},
+           familyi={S\bibinitperiod},
+           given={Rachid},
+           giveni={R\bibinitperiod}}}%
+        {{hash=ca41f961f95d408ce164ed9c11f78f1e}{%
+           family={Lindwasser},
+           familyi={L\bibinitperiod},
+           given={O.\bibnamedelimi Wolf},
+           giveni={O\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=fb5f81dd2bb1a0eb80b92941ca84c70f}{%
+           family={Olenych},
+           familyi={O\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d98ee9ace75153fb925ec73a36cd5815}{%
+           family={Bonifacino},
+           familyi={B\bibinitperiod},
+           given={Juan\bibnamedelima S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=b204ac1e237cc86f0f963888967cfcf6}{%
+           family={Davidson},
+           familyi={D\bibinitperiod},
+           given={Michael\bibnamedelima W.},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=3db42c1df79c3427c0137c2e3384a368}{%
+           family={Lippincott-Schwartz},
+           familyi={L\bibinithyphendelim S\bibinitperiod},
+           given={Jennifer},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8a9f7b887133c20f3fac101431d4de44}{%
+           family={Hess},
+           familyi={H\bibinitperiod},
+           given={Harald\bibnamedelima F.},
+           giveni={H\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{bc8391f268e0d3941739497dc8f9e75a}
+      \strng{fullhash}{8b588e36b235cd2f9b4ee6a115ca475d}
+      \strng{fullhashraw}{8b588e36b235cd2f9b4ee6a115ca475d}
+      \strng{bibnamehash}{bc8391f268e0d3941739497dc8f9e75a}
+      \strng{authorbibnamehash}{bc8391f268e0d3941739497dc8f9e75a}
+      \strng{authornamehash}{bc8391f268e0d3941739497dc8f9e75a}
+      \strng{authorfullhash}{8b588e36b235cd2f9b4ee6a115ca475d}
+      \strng{authorfullhashraw}{8b588e36b235cd2f9b4ee6a115ca475d}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{15}
+      \field{issn}{0036-8075, 1095-9203}
+      \field{journaltitle}{Science}
+      \field{langid}{english}
+      \field{month}{9}
+      \field{number}{5793}
+      \field{shortjournal}{Science}
+      \field{title}{Imaging {{Intracellular Fluorescent Proteins}} at {{Nanometer Resolution}}}
+      \field{urlday}{27}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{volume}{313}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1642\bibrangedash 1645}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1126/science.1127344
+      \endverb
+      \verb{urlraw}
+      \verb https://www.science.org/doi/10.1126/science.1127344
+      \endverb
+      \verb{url}
+      \verb https://www.science.org/doi/10.1126/science.1127344
+      \endverb
+    \endentry
+    \entry{heilemannSubdiffractionResolutionFluorescenceImaging2008}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=a83a0dff3fb9442ec0eec4267580334a}{%
+           family={Heilemann},
+           familyi={H\bibinitperiod},
+           given={Mike},
+           giveni={M\bibinitperiod}}}%
+        {{useprefix=true,hash=37bee823c2b1c70a5bb8e7d5e5e3411f}{%
+           family={Linde},
+           familyi={L\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod},
+           prefix={van\bibnamedelima de},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+        {{hash=c94a6ed722e58ad31544ee47ec21ecee}{%
+           family={Schüttpelz},
+           familyi={S\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=3fdf3a8fa1c0e291a9d414e3a0af52cc}{%
+           family={Kasper},
+           familyi={K\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=81643d7820997523274568e67009b317}{%
+           family={Seefeldt},
+           familyi={S\bibinitperiod},
+           given={Britta},
+           giveni={B\bibinitperiod}}}%
+        {{hash=d2a70ea82d77530c7f235f4c9e59914a}{%
+           family={Mukherjee},
+           familyi={M\bibinitperiod},
+           given={Anindita},
+           giveni={A\bibinitperiod}}}%
+        {{hash=813febedf9d6d532e219b1ffd0a4342e}{%
+           family={Tinnefeld},
+           familyi={T\bibinitperiod},
+           given={Philip},
+           giveni={P\bibinitperiod}}}%
+        {{hash=3a9c064d0cebd533f906c51db634be38}{%
+           family={Sauer},
+           familyi={S\bibinitperiod},
+           given={Markus},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{12a357a65319f24a7d42c5c0c1d4d54e}
+      \strng{fullhash}{f8ef3da1de74e03beb1fe9f3d2f5e134}
+      \strng{fullhashraw}{f8ef3da1de74e03beb1fe9f3d2f5e134}
+      \strng{bibnamehash}{12a357a65319f24a7d42c5c0c1d4d54e}
+      \strng{authorbibnamehash}{12a357a65319f24a7d42c5c0c1d4d54e}
+      \strng{authornamehash}{12a357a65319f24a7d42c5c0c1d4d54e}
+      \strng{authorfullhash}{f8ef3da1de74e03beb1fe9f3d2f5e134}
+      \strng{authorfullhashraw}{f8ef3da1de74e03beb1fe9f3d2f5e134}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{4}
+      \field{issn}{1433-7851, 1521-3773}
+      \field{journaltitle}{Angewandte Chemie International Edition}
+      \field{langid}{english}
+      \field{month}{8}
+      \field{number}{33}
+      \field{shortjournal}{Angew Chem Int Ed}
+      \field{title}{Subdiffraction‐{{Resolution Fluorescence Imaging}} with {{Conventional Fluorescent Probes}}}
+      \field{urlday}{19}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{volume}{47}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{6172\bibrangedash 6176}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1002/anie.200802376
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/10.1002/anie.200802376
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/10.1002/anie.200802376
+      \endverb
+    \endentry
+    \entry{balzarottiNanometerResolutionImaging2017}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=162ab38dcf7d11a6e94070ee896cbe60}{%
+           family={Balzarotti},
+           familyi={B\bibinitperiod},
+           given={Francisco},
+           giveni={F\bibinitperiod}}}%
+        {{hash=1bf54b1a07f793dd85dfbc6bda9d28b1}{%
+           family={Eilers},
+           familyi={E\bibinitperiod},
+           given={Yvan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=f1655ea6fc270148d0f3a0a8a8ef1dd3}{%
+           family={Gwosch},
+           familyi={G\bibinitperiod},
+           given={Klaus\bibnamedelima C.},
+           giveni={K\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=585a1628d0c2531fed9e0e630b43d815}{%
+           family={Gynnå},
+           familyi={G\bibinitperiod},
+           given={Arvid\bibnamedelima H.},
+           giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=6d0684a49af4ccef2dc7eb7a9dc9a33f}{%
+           family={Westphal},
+           familyi={W\bibinitperiod},
+           given={Volker},
+           giveni={V\bibinitperiod}}}%
+        {{hash=4763ee31584b224df6ce7fdc5f3abe3c}{%
+           family={Stefani},
+           familyi={S\bibinitperiod},
+           given={Fernando\bibnamedelima D.},
+           giveni={F\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=25f8256ef70b4649670420c7b555535f}{%
+           family={Elf},
+           familyi={E\bibinitperiod},
+           given={Johan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=817091458281fdd1953a31dd45bc5980}{%
+           family={Hell},
+           familyi={H\bibinitperiod},
+           given={Stefan\bibnamedelima W.},
+           giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{e40ec0db2661a242d2ad608e0036d25f}
+      \strng{fullhash}{f4c762414aff6f7477df55d6a08cd6d2}
+      \strng{fullhashraw}{f4c762414aff6f7477df55d6a08cd6d2}
+      \strng{bibnamehash}{e40ec0db2661a242d2ad608e0036d25f}
+      \strng{authorbibnamehash}{e40ec0db2661a242d2ad608e0036d25f}
+      \strng{authornamehash}{e40ec0db2661a242d2ad608e0036d25f}
+      \strng{authorfullhash}{f4c762414aff6f7477df55d6a08cd6d2}
+      \strng{authorfullhashraw}{f4c762414aff6f7477df55d6a08cd6d2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{10}
+      \field{issn}{0036-8075, 1095-9203}
+      \field{journaltitle}{Science}
+      \field{langid}{english}
+      \field{month}{2}
+      \field{number}{6325}
+      \field{shortjournal}{Science}
+      \field{title}{Nanometer Resolution Imaging and Tracking of Fluorescent Molecules with Minimal Photon Fluxes}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{volume}{355}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{606\bibrangedash 612}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1126/science.aak9913
+      \endverb
+      \verb{urlraw}
+      \verb https://www.science.org/doi/10.1126/science.aak9913
+      \endverb
+      \verb{url}
+      \verb https://www.science.org/doi/10.1126/science.aak9913
+      \endverb
+    \endentry
+    \entry{deguchiDirectObservationMotor}{article}{}{}
+      \name{author}{14}{}{%
+        {{hash=a0ffb04f7d6ce5613d36ac13c50ac687}{%
+           family={Deguchi},
+           familyi={D\bibinitperiod},
+           given={Takahiro},
+           giveni={T\bibinitperiod}}}%
+        {{hash=4e5713d9f97146f59344584806e1eac2}{%
+           family={Iwanski},
+           familyi={I\bibinitperiod},
+           given={Malina\bibnamedelima K},
+           giveni={M\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=957fcb65b7429dc22f06262031b99096}{%
+           family={Schentarra},
+           familyi={S\bibinitperiod},
+           given={Eva-Maria},
+           giveni={E\bibinithyphendelim M\bibinitperiod}}}%
+        {{hash=fe3b2c6c146963800b6f503c0df4535f}{%
+           family={Heidebrecht},
+           familyi={H\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+        {{hash=5e4501f14d05f3b199647a37fa5b377f}{%
+           family={Schmidt},
+           familyi={S\bibinitperiod},
+           given={Lisa},
+           giveni={L\bibinitperiod}}}%
+        {{hash=f435ae066e3abd92e503815882658cad}{%
+           family={Heck},
+           familyi={H\bibinitperiod},
+           given={Jennifer},
+           giveni={J\bibinitperiod}}}%
+        {{hash=cb39380fb75fba455d039827a7a54923}{%
+           family={Weihs},
+           familyi={W\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+        {{hash=15f689fd85f2a61200914751a9b0a593}{%
+           family={Schnorrenberg},
+           familyi={S\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bacee72333d3d7fbc7ceb0e04fef35ae}{%
+           family={Hoess},
+           familyi={H\bibinitperiod},
+           given={Philipp},
+           giveni={P\bibinitperiod}}}%
+        {{hash=b51d008c8f8b480734bdad360774940e}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Sheng},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c3dfed6cccc5525bf1c07d21cc730296}{%
+           family={Chevyreva},
+           familyi={C\bibinitperiod},
+           given={Veronika},
+           giveni={V\bibinitperiod}}}%
+        {{hash=d1e1c7ab2f71a368fb925f4b10f46c80}{%
+           family={Noh},
+           familyi={N\bibinitperiod},
+           given={Kyung-Min},
+           giveni={K\bibinithyphendelim M\bibinitperiod}}}%
+        {{hash=2ab9d04a8cf64836805a616538f1d3fc}{%
+           family={Kapitein},
+           familyi={K\bibinitperiod},
+           given={Lukas\bibnamedelima C},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=8885825bd10ee5ea680a830694a45270}{%
+           family={Ries},
+           familyi={R\bibinitperiod},
+           given={Jonas},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{6f2119618d69f1b5e2fe6cf9a28869ed}
+      \strng{fullhash}{e72fe543778a098d4f96a79c1d08b07b}
+      \strng{fullhashraw}{e72fe543778a098d4f96a79c1d08b07b}
+      \strng{bibnamehash}{6f2119618d69f1b5e2fe6cf9a28869ed}
+      \strng{authorbibnamehash}{6f2119618d69f1b5e2fe6cf9a28869ed}
+      \strng{authornamehash}{6f2119618d69f1b5e2fe6cf9a28869ed}
+      \strng{authorfullhash}{e72fe543778a098d4f96a79c1d08b07b}
+      \strng{authorfullhashraw}{e72fe543778a098d4f96a79c1d08b07b}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Direct Observation of Motor Protein Stepping in Living Cells Using {{MINFLUX}}}
+    \endentry
+    \entry{schleskeMINFLUXRevealsDynein2024}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=083e14e8e2233f38c2e461697d1bb3ff}{%
+           family={Schleske},
+           familyi={S\bibinitperiod},
+           given={Jonas\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=0042f2dab7f844f30a222ee9d021a2d1}{%
+           family={Hubrich},
+           familyi={H\bibinitperiod},
+           given={Jasmine},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2bf8acb2577575c3823b35325643382b}{%
+           family={Wirth},
+           familyi={W\bibinitperiod},
+           given={Jan\bibnamedelima Otto},
+           giveni={J\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=99fa36e176558cf9a63bfd8d81920fd8}{%
+           family={D'Este},
+           familyi={D\bibinitperiod},
+           given={Elisa},
+           giveni={E\bibinitperiod}}}%
+        {{hash=3c7ca554adb75f43cb1198759c93933a}{%
+           family={Engelhardt},
+           familyi={E\bibinitperiod},
+           given={Johann},
+           giveni={J\bibinitperiod}}}%
+        {{hash=817091458281fdd1953a31dd45bc5980}{%
+           family={Hell},
+           familyi={H\bibinitperiod},
+           given={Stefan\bibnamedelima W.},
+           giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{48946590f6459a2aef287584967d174d}
+      \strng{fullhash}{e87d8fb0ffec3fca6a005abd055329bb}
+      \strng{fullhashraw}{e87d8fb0ffec3fca6a005abd055329bb}
+      \strng{bibnamehash}{48946590f6459a2aef287584967d174d}
+      \strng{authorbibnamehash}{48946590f6459a2aef287584967d174d}
+      \strng{authornamehash}{48946590f6459a2aef287584967d174d}
+      \strng{authorfullhash}{e87d8fb0ffec3fca6a005abd055329bb}
+      \strng{authorfullhashraw}{e87d8fb0ffec3fca6a005abd055329bb}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{17}
+      \field{issn}{0027-8424, 1091-6490}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences}
+      \field{langid}{english}
+      \field{month}{9}
+      \field{number}{38}
+      \field{shortjournal}{Proc. Natl. Acad. Sci. U.S.A.}
+      \field{title}{{{MINFLUX}} Reveals Dynein Stepping in Live Neurons}
+      \field{urlday}{27}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{volume}{121}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{e2412241121}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1073/pnas.2412241121
+      \endverb
+      \verb{urlraw}
+      \verb https://pnas.org/doi/10.1073/pnas.2412241121
+      \endverb
+      \verb{url}
+      \verb https://pnas.org/doi/10.1073/pnas.2412241121
+      \endverb
+    \endentry
+    \entry{sauOverlappingNuclearImport2025}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=52a8755610bc1db3b1c822b4ac122b35}{%
+           family={Sau},
+           familyi={S\bibinitperiod},
+           given={Abhishek},
+           giveni={A\bibinitperiod}}}%
+        {{hash=15f689fd85f2a61200914751a9b0a593}{%
+           family={Schnorrenberg},
+           familyi={S\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1e2b22eb4f6fbbda77ec38e0f2b5d4c8}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Ziqiang},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=f51b421a2a61ee9c3984581b7b374508}{%
+           family={Bandyopadhyay},
+           familyi={B\bibinitperiod},
+           given={Debolina},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ab55f235db8f92a767c252720fd9f0f3}{%
+           family={Sharma},
+           familyi={S\bibinitperiod},
+           given={Ankith},
+           giveni={A\bibinitperiod}}}%
+        {{hash=610ad487b2f6838fe0281b752d7bd6a1}{%
+           family={Gürth},
+           familyi={G\bibinitperiod},
+           given={Clara-Marie},
+           giveni={C\bibinithyphendelim M\bibinitperiod}}}%
+        {{hash=caecb22b4bf26071346f1fd0ec2a32ce}{%
+           family={Dave},
+           familyi={D\bibinitperiod},
+           given={Sandeep},
+           giveni={S\bibinitperiod}}}%
+        {{hash=04fc35c54fd239935612af45024a90cc}{%
+           family={Musser},
+           familyi={M\bibinitperiod},
+           given={Siegfried\bibnamedelima M.},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{0aba4199bc9385031819929943beb7cf}
+      \strng{fullhash}{1a87454a01ba8d39944e95d45ec45cc8}
+      \strng{fullhashraw}{1a87454a01ba8d39944e95d45ec45cc8}
+      \strng{bibnamehash}{0aba4199bc9385031819929943beb7cf}
+      \strng{authorbibnamehash}{0aba4199bc9385031819929943beb7cf}
+      \strng{authornamehash}{0aba4199bc9385031819929943beb7cf}
+      \strng{authorfullhash}{1a87454a01ba8d39944e95d45ec45cc8}
+      \strng{authorfullhashraw}{1a87454a01ba8d39944e95d45ec45cc8}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{17}
+      \field{issn}{0028-0836, 1476-4687}
+      \field{journaltitle}{Nature}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{number}{8059}
+      \field{shortjournal}{Nature}
+      \field{title}{Overlapping Nuclear Import and Export Paths Unveiled by Two-Colour {{MINFLUX}}}
+      \field{urlday}{27}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{volume}{640}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{821\bibrangedash 827}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1038/s41586-025-08738-0
+      \endverb
+      \verb{urlraw}
+      \verb https://www.nature.com/articles/s41586-025-08738-0
+      \endverb
+      \verb{url}
+      \verb https://www.nature.com/articles/s41586-025-08738-0
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
