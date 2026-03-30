@@ -32,7 +32,7 @@ fig, axes = plt.subplots(1, 2, figsize=(10, 4))
 
 axes[0].plot(x_pupil, pupil_intensity, color="steelblue", lw=2)
 axes[0].set_xlabel(r"$k_x/k_{\max}$")
-axes[0].set_ylabel("$|E|$")
+axes[0].set_ylabel("$P(k_x)$")
 axes[0].set_title("Pupil")
 axes[0].set_xlim(-3, 3)
 axes[0].set_ylim(-0.05, 1.15)
@@ -45,8 +45,8 @@ z2 = 1.0
 u = freq * lambda_ * z2
 
 axes[1].plot(u[mask], psf_intensity[mask], color="tomato", lw=2)
-axes[1].set_xlabel(r"$u$")
-axes[1].set_ylabel("$|E|$")
+axes[1].set_xlabel(r"$x$")
+axes[1].set_ylabel("$h(x)$")
 axes[1].set_title("PSF")
 axes[1].set_xlim(-plot_range, plot_range)
 axes[1].set_ylim(-0.05, 1.15)

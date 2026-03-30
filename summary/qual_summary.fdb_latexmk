@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber qual_summary"] 1774653772.49999 "qual_summary.bcf" "qual_summary.bbl" "qual_summary" 1774654165.60214 0
-  "qual_summary.bcf" 1774654165.55685 108784 c94ed0ec32bd35baedc870a462312114 "pdflatex"
+["biber qual_summary"] 1774653772.49999 "qual_summary.bcf" "qual_summary.bbl" "qual_summary" 1774654244.87974 0
+  "qual_summary.bcf" 1774654244.83025 108784 c94ed0ec32bd35baedc870a462312114 "pdflatex"
   "references.bib" 1774653275.92699 4902 c443c6deb6d419eb48e034ec2797f993 ""
   (generated)
   "qual_summary.bbl"
   "qual_summary.blg"
   (rewritten before read)
-["pdflatex"] 1774654164.75159 "/Users/ethanrosenfeld/Documents/Documents/Quals/summary/qual_summary.tex" "qual_summary.pdf" "qual_summary" 1774654165.60235 0
-  "/Users/ethanrosenfeld/Documents/Documents/Quals/summary/qual_summary.tex" 1774654163.73987 14051 ed21047cb53d43c76ab041415a044adb ""
+["pdflatex"] 1774654243.92694 "/Users/ethanrosenfeld/Documents/Documents/Quals/summary/qual_summary.tex" "qual_summary.pdf" "qual_summary" 1774654244.87997 0
+  "/Users/ethanrosenfeld/Documents/Documents/Quals/summary/qual_summary.tex" 1774654242.75159 14041 48f64143cbd16afe97dad40517e6edd2 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -118,12 +118,12 @@
   "figs/fig_1.png" 1774586819 5254187 565ce33c6f7a0a68dd7d1c27a1ffc708 ""
   "figs/fig_2.png" 1774591701.70784 29520 6fb01e0ced427ae4e4a5390a48a61c94 ""
   "figs/fig_3.png" 1774638736.33019 914101 c2811c68e8209666d672a3a0d6e8ad69 ""
-  "qual_summary.aux" 1774654165.55547 5676 0370b449a507f58597105c236e69da66 "pdflatex"
+  "qual_summary.aux" 1774654244.82864 5676 3f24b6e1dd808d6fda0e567c0bbbec8b "pdflatex"
   "qual_summary.bbl" 1774653773.5065 24421 b1467e51c5ba9e1adec7994abd22b29a "biber qual_summary"
-  "qual_summary.out" 1774654165.5562 1633 f3293555e5afa17f6a55669cf0d8dad3 "pdflatex"
-  "qual_summary.run.xml" 1774654165.5574 2361 d8b0a15a6f01e5eae5c418eed4329dc0 "pdflatex"
-  "qual_summary.tex" 1774654163.73987 14051 ed21047cb53d43c76ab041415a044adb ""
-  "qual_summary.toc" 1774654165.55745 828 b60e81cdf68e029c13402877626879ae "pdflatex"
+  "qual_summary.out" 1774654244.82956 1633 f3293555e5afa17f6a55669cf0d8dad3 "pdflatex"
+  "qual_summary.run.xml" 1774654244.83078 2361 d8b0a15a6f01e5eae5c418eed4329dc0 "pdflatex"
+  "qual_summary.tex" 1774654242.75159 14041 48f64143cbd16afe97dad40517e6edd2 ""
+  "qual_summary.toc" 1774654244.83083 828 7232710ae40f9f05b448a638d896f773 "pdflatex"
   (generated)
   "qual_summary.aux"
   "qual_summary.bcf"

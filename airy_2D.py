@@ -38,8 +38,8 @@ ax1.set_zlim(0, 1.5)
 ax2 = fig.add_subplot(122, projection='3d')
 ax2.plot_surface(UX, UY, np.sqrt(airy), rstride=1, cstride=1, cmap='Blues',
                  linewidth=0, antialiased=False)
-ax2.set_xlabel(r'$u$', fontsize=18, labelpad=10)
-ax2.set_ylabel(r'$v$', fontsize=18, labelpad=10)
+ax2.set_xlabel(r'$x$', fontsize=18, labelpad=10)
+ax2.set_ylabel(r'$y$', fontsize=18, labelpad=10)
 ax2.set_title('PSF', fontsize=22, pad=12)
 
 plt.tight_layout()

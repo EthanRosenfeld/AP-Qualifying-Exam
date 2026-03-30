@@ -33,9 +33,9 @@ def loglikelihood(r, n):
 p_true = probs(r_true[None, :])[0]
 n = np.random.multinomial(N, p_true)
 
-# successive grid refinement
-widths = np.array([240e-9, 60e-9, 12e-9, 2.4e-9, 0.48e-9])
-m = 121
+# successive grid refinement (matches MINFLUX_simulation: 25 pts/axis, steps 5/1/0.1/0.01 nm)
+widths = np.array([5e-9, 1e-9, 0.1e-9, 0.01e-9]) * 24   # full width = step * (n_pts-1)
+m = 25
 
 path = []
 ells = []
@@ -75,7 +75,7 @@ iy_ml, ix_ml = np.unravel_index(np.argmax(ell), ell.shape)
 r_ml = np.array([X[iy_ml, ix_ml], Y[iy_ml, ix_ml]])
 
 # error vs N sweep for multiple L values
-L_vals_crb = np.array([25, 50, 75, 100, 125, 150]) * 1e-9
+L_vals_crb = np.array([25, 50, 75, 100]) * 1e-9
 
 def run_mle_L(N_sweep, L_val, r_t, p_t):
     alpha_ = 2*np.pi*np.arange(1, 4)/3
@@ -190,7 +190,7 @@ def sigma_crb_cam(N_val, SBR):
     C = np.linalg.inv(N_val * F)
     return np.sqrt(np.trace(C)/d_cam)
 
-cam_SBRs = [50, 500, np.inf]
+cam_SBRs = [np.inf]
 cam_crb = {sbr: np.array([sigma_crb_cam(Nv, sbr) for Nv in N_vals]) for sbr in cam_SBRs}
 
 # plots
@@ -199,7 +199,6 @@ fig, ax = plt.subplots(1, 2, figsize=(12, 4))
 im = ax[0].contourf(X*1e9, Y*1e9, ell, levels=50)
 ax[0].plot(r_beams[:, 0]*1e9, r_beams[:, 1]*1e9, 'wo', ms=8, mec='k', mew=1, label='beam centers')
 ax[0].plot(r_true[0]*1e9, r_true[1]*1e9, 'rx', ms=8, mew=2, label='true position')
-ax[0].plot(path[:, 0]*1e9, path[:, 1]*1e9, 'o-', lw=1.5, ms=4, label='MLE path')
 ax[0].plot(r_ml[0]*1e9, r_ml[1]*1e9, 'g+', ms=10, mew=2, label='max likelihood')
 ax[0].set_xlim(x[0]*1e9, x[-1]*1e9)
 ax[0].set_ylim(y[0]*1e9, y[-1]*1e9)
@@ -218,16 +217,16 @@ for ci, L_val in enumerate(L_vals_crb):
     # inline label at the last point of the CRB line
     ax[1].text(N_vals[-1]*1.05, crb_lines[L_val][-1]*1e9,
                'L=%.0f nm' % (L_val*1e9), color=color, fontsize=7, va='center')
-cam_grays = {50: '0.72', 500: '0.4', np.inf: '0.05'}
 for sbr in cam_SBRs:
-    gray = cam_grays[sbr]
-    label = 'cam SBR=∞' if np.isinf(sbr) else f'cam SBR={sbr:.0f}'
-    ax[1].plot(N_vals, cam_crb[sbr]*1e9, '-', lw=1.5, color=gray)
+    label = 'perfect camera'
+    ax[1].plot(N_vals, cam_crb[sbr]*1e9, '-', lw=1.5, color='0.05')
     ax[1].text(N_vals[-1]*1.05, cam_crb[sbr][-1]*1e9,
-               label, color=gray, fontsize=7, va='center')
+               label, color='0.05', fontsize=7, va='center')
 ax[1].set_xscale('log')
 ax[1].set_yscale('log')
 ax[1].set_xlabel('N (photons)')
+ax[1].xaxis.set_major_formatter(plt.ScalarFormatter())
+ax[1].yaxis.set_major_formatter(plt.ScalarFormatter())
 ax[1].set_ylabel('error (nm)')
 ax[1].set_title('MLE error vs photon number')
 

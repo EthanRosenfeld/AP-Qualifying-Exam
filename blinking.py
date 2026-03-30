@@ -69,6 +69,18 @@ def update(i):
     im.set_data(all_frames[i])
     return im,
 
+# Scale bar: 500 nm = 0.5 µm, placed bottom-left
+sb_x0, sb_y = 0.15, 0.20
+sb_len = 0.5
+sb_line, = ax.plot([sb_x0, sb_x0 + sb_len], [sb_y, sb_y],
+                   color='white', linewidth=2.5, solid_capstyle='butt')
+sb_text = ax.text(sb_x0 + sb_len / 2, sb_y + 0.10, '500 nm',
+                  color='white', ha='center', va='bottom', fontsize=9)
+
+def update(i):
+    im.set_data(all_frames[i])
+    return im, sb_line, sb_text
+
 ani = animation.FuncAnimation(fig, update, frames=n_frames,
                                interval=80, blit=True)
 

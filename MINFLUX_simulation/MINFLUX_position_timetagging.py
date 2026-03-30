@@ -65,10 +65,9 @@ for j in range(N_BEAMS):
             label=f'$r_{j}$')
 
 # ── Axes ──────────────────────────────────────────────────────────────────────
-T_s = t_ms[-1] / 1e3
-ax.set_xlim(t_ms[0], t_ms[-1])
-ax.set_xticks([0, t_ms[-1]])
-ax.set_xticklabels(['0 s', f'{T_s:.0f} s'])
+ax.set_xlim(t_ms[0], 1000)
+ax.set_xticks([0, 1000])
+ax.set_xticklabels(['0 s', '1 s'])
 ax.set_xlabel('Time')
 ax.set_ylabel('Count rate (kHz)')
 # ax.set_title('MINFLUX photon time trace — beam contributions and fluorophore bursts')

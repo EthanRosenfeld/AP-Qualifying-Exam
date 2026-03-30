@@ -1,10 +1,10 @@
-\contentsline {section}{\numberline {1}Motivation: resolution beyond the diffraction limit}{3}{section.1}%
-\contentsline {section}{\numberline {2}The diffraction limit}{3}{section.2}%
-\contentsline {section}{\numberline {3}Super-resolution}{5}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Parameter estimation}{5}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Super-resolution techniques}{5}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Fluorophore blinking in STORM}{6}{subsection.3.3}%
-\contentsline {section}{\numberline {4}MINFLUX}{6}{section.4}%
-\contentsline {subsection}{\numberline {4.1}MINFLUX algorithm}{6}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}MINFLUX applications}{7}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Conclusion}{8}{section.5}%
+\contentsline {section}{\numberline {1}Motivation: resolution beyond the diffraction limit}{2}{section.1}%
+\contentsline {section}{\numberline {2}The diffraction limit}{2}{section.2}%
+\contentsline {section}{\numberline {3}Super-resolution}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Parameter estimation}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Super-resolution techniques}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Fluorophore blinking in STORM}{5}{subsection.3.3}%
+\contentsline {section}{\numberline {4}MINFLUX}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}MINFLUX algorithm}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}MINFLUX applications}{6}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Conclusion}{7}{section.5}%
